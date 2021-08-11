@@ -19,7 +19,7 @@ public class ConnectSameLevelNodes {
         ThreadedNode tmp = root;
 
         // first set the next pointer of root
-        root.left = null;
+        root.next = null;
 
         //traverse all the levels
         while (tmp != null) {
@@ -69,7 +69,7 @@ public class ConnectSameLevelNodes {
             tmp = tmp.next;
         }
 
-        return null;
+        return tmp;
     }
     public void solution(TreeNode<Integer> root) {
         Queue<TreeNode<Integer>> queue = new LinkedList<>();

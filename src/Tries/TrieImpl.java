@@ -1,12 +1,12 @@
-// program to add and search a word in the trie
+package src.Tries;// program to add and search a word in the trie
 
-package Tries;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TrieImpl {
-    class TrieNode {
+    static class TrieNode {
         String word;
         boolean isLeaf;
         TrieNode[] children;
@@ -19,6 +19,7 @@ public class TrieImpl {
 
         public TrieNode() {
             this.children = new TrieNode[26];
+            Arrays.fill(this.children, null);
             this.word = "";
             this.isLeaf = false;
         }
@@ -29,6 +30,10 @@ public class TrieImpl {
         root = new TrieNode();
     }
     private TrieNode root;
+
+    public TrieNode getRoot() {
+        return root;
+    }
 
     // program to add a word in the trie
     public void addWord(String word) {
@@ -86,6 +91,19 @@ public class TrieImpl {
         }
 
         return words;
+    }
+
+    protected void getWords(TrieNode root, List<String> words) {
+        if (root.isLeaf) {
+            words.add(root.word);
+            return;
+        }
+
+        for (var i = 0; i < 26; i++) {
+            if (root.children[i] != null) {
+                getWords(root.children[i], words);
+            }
+        }
     }
 
     public List<String> autoComplete(String prefix) {

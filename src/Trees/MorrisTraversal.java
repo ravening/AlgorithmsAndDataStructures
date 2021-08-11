@@ -50,7 +50,7 @@ public class MorrisTraversal {
                     prev.setRight(current);
                     current = current.getLeft();
                 } else {
-                    // we have already found the inoder successor. so revert the changes made in above
+                    // we have already found the inorder successor. so revert the changes made in above
                     // if condition
                     prev.setRight(null);
                     this.display(current.getData());

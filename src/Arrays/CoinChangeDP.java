@@ -1,9 +1,34 @@
-// given an amount and coin, find the number of ways to make the amount using
+package src.Arrays;// given an amount and coin, find the number of ways to make the amount using
 // the coins
 
-package Arrays;
+
+import java.util.Arrays;
 
 public class CoinChangeDP {
+    public void minimumCoins(int[] coins, int amount) {
+        int[] table = new int[amount + 1];
+        Arrays.fill(table, Integer.MAX_VALUE);
+        table[0] = 0;
+        for (var i = 1; i <= amount; i++) {
+            for (var j = 0; j < coins.length; j++) {
+                if (coins[j] <= i) {
+                    int tmp = table[i - coins[j]];
+                    if (tmp != Integer.MAX_VALUE && (tmp + 1 < table[i])) {
+                        table[i] = tmp + 1;
+                    }
+                }
+            }
+        }
+
+        System.out.println(table[amount]);
+    }
+
+    public static void main(String[] args) {
+        CoinChangeDP problem = new CoinChangeDP();
+        int[] coins = new int[]{1, 2, 5};
+        int amount = 11;
+        problem.minimumCoins(coins, amount);
+    }
     public void solution(int[] values, int amount) {
         int[][] solution = new int[values.length+1][amount+1];
 
