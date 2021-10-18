@@ -23,7 +23,7 @@ public class BmiCalculator {
                 throw new IllegalArgumentException("Height cant be 0");
             }
             return height;
-        },bmiCalculator.executorService).exceptionallyAsync(ex -> {
+        },bmiCalculator.executorService).exceptionally(ex -> {
             System.out.println("Invalid height entered. so considering height as 1m");
             return 1.0;
         });
@@ -33,7 +33,7 @@ public class BmiCalculator {
                 throw new IllegalArgumentException("Weight cant be 0");
             }
             return weight;
-        }, bmiCalculator.executorService).exceptionallyAsync(ex -> {
+        }, bmiCalculator.executorService).exceptionally(ex -> {
             System.out.println("Inavled weight entered. so considering weight as 1kg");
             return 1.0;
         });
