@@ -24,6 +24,28 @@ public class NextGreaterElement {
         return output;
     }
 
+    /*
+    https://www.geeksforgeeks.org/next-greater-element/
+    without extra array
+     */
+
+    public int[] solutionWithoutExtraArray(int[] array) {
+        Stack<Integer> stack = new Stack<>();
+
+        for (var i = 0; i < array.length; i++) {
+            while (!stack.isEmpty() && array[stack.peek()] < array[i]) {
+                array[stack.peek()] = array[i];
+                stack.pop();
+            }
+            stack.push(i);
+        }
+
+        while (!stack.isEmpty()) {
+            array[stack.peek()] = -1;
+        }
+        return array;
+    }
+
     public void solution(int[] array) {
         Stack<Integer> stack = new Stack<>();
         int[] output = new int[array.length];
