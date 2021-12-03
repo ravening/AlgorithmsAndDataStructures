@@ -1,4 +1,4 @@
-package src.Lambdas.src.main.java.com.rakeshv;
+package com.rakeshv;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -26,14 +26,14 @@ public class Lambdas
         strings.removeIf(string -> string.startsWith("t"));
          strings.forEach(consumer);
 
-        User sarah = new User("sarah", 28);
-        User james = new User("james", 35);
-        User mary = new User("mary", 33);
-        User john2 = new User("john2", 24);
-        User john1 = new User("john1", 26);
+        src.Lambdas.src.main.java.com.rakeshv.User sarah = new src.Lambdas.src.main.java.com.rakeshv.User("sarah", 28);
+        src.Lambdas.src.main.java.com.rakeshv.User james = new src.Lambdas.src.main.java.com.rakeshv.User("james", 35);
+        src.Lambdas.src.main.java.com.rakeshv.User mary = new src.Lambdas.src.main.java.com.rakeshv.User("mary", 33);
+        src.Lambdas.src.main.java.com.rakeshv.User john2 = new src.Lambdas.src.main.java.com.rakeshv.User("john2", 24);
+        src.Lambdas.src.main.java.com.rakeshv.User john1 = new src.Lambdas.src.main.java.com.rakeshv.User("john1", 26);
 
-        List<User> users = new ArrayList<>(List.of(sarah, james, mary, john1, john2));
-        users.stream().map(User::getName).forEach(consumer);
+        List<src.Lambdas.src.main.java.com.rakeshv.User> users = new ArrayList<>(List.of(sarah, james, mary, john1, john2));
+        users.stream().map(src.Lambdas.src.main.java.com.rakeshv.User::getName).forEach(consumer);
 
         IntSupplier intSupplier = () -> 10;
         int value = intSupplier.getAsInt();
@@ -47,12 +47,12 @@ public class Lambdas
         System.out.println(pi);
 
         // Compare using name
-        Comparator<User> comparator = Comparator.comparing(User::getName);
+        Comparator<src.Lambdas.src.main.java.com.rakeshv.User> comparator = Comparator.comparing(src.Lambdas.src.main.java.com.rakeshv.User::getName);
         // compare using age
-        Comparator<User> ageComparator = Comparator.comparing(User::getAge);
+        Comparator<src.Lambdas.src.main.java.com.rakeshv.User> ageComparator = Comparator.comparing(src.Lambdas.src.main.java.com.rakeshv.User::getAge);
         // reverse
-        Comparator<User> reverseComparator = comparator.reversed();
-        Consumer<User> userConsumer = System.out::println;
+        Comparator<src.Lambdas.src.main.java.com.rakeshv.User> reverseComparator = comparator.reversed();
+        Consumer<src.Lambdas.src.main.java.com.rakeshv.User> userConsumer = System.out::println;
         comparator.thenComparing(ageComparator);
         users.sort(comparator);
         // users.forEach(userConsumer);
