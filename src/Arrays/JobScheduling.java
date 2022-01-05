@@ -60,16 +60,13 @@ public class JobScheduling {
         return ans;
     }
 
-
     void scheduleJobs(List<Job> jobs) {
         Collections.sort(jobs, (j1, j2) -> {return (j1.profit > j2.profit) ? -1 : 1;});
         int maxSlot = maxTimeSlot(jobs);
         DisjointSet disjointSet = new DisjointSet(maxSlot);
 
         for (var job : jobs) {
-//            System.out.println(" job is " + job);
             int availableSlot = disjointSet.find(job.deadline);
-//            System.out.println("available slot is " + availableSlot);
             if (availableSlot > 0) {
                 disjointSet.merge(disjointSet.find(availableSlot - 1), availableSlot);
                 System.out.print(job + " ");

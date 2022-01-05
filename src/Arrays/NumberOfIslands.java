@@ -1,4 +1,4 @@
-package src.Arrays;
+package Arrays;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -56,13 +56,89 @@ public class NumberOfIslands {
     private boolean isValid(int i, int j, int row, int col) {
         return (i >= 0 && j >= 0 && i < row && j < col);
     }
-}
 
-class Node {
-    int x;
-    int y;
-    Node(int x, int y) {
-        this.x = x;
-        this.y = y;
+    private int numberOfIslands(int[][] grid) {
+        int numberOfIslands = 0;
+        DisjointSet disjointSet = new DisjointSet(grid.length * grid[0].length);
+
+        int m = grid.length;
+        int n = grid[0].length;
+
+        for (var i = 0; i < m; i++) {
+            for (var j = 0; j < n; j++) {
+                int tmp = i * m + j;
+                if (isValid(i+1,j,m,n) && grid[i+1][j] == 1) {
+                    disjointSet.union(tmp, tmp + m);
+                }
+                if (isValid(i-1, j, m, n) && grid[i-1][j] == 1) {
+                    disjointSet.union(tmp, tmp - m);
+                }
+                if (isValid(i, j + 1, m , n) && grid[i][j+1] == 1) {
+                    disjointSet.union(tmp, tmp + 1);
+                }
+                if (isValid(i, j -1, m , n) && grid[i][j-1] == 1) {
+                    disjointSet.union(tmp, tmp - 1);
+                }
+            }
+        }
+
+        for (var i = 0; i < m * n; i++) {
+            if (disjointSet.id[i] == i && grid[i / n][i % n] == 1)
+                numberOfIslands++;
+        }
+
+        return numberOfIslands;
+    }
+
+    class Node {
+        int x;
+        int y;
+        Node(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    class DisjointSet {
+        int[] size;
+        int[] id;
+
+        DisjointSet(int n) {
+            size = new int[n];
+            id = new  int[n];
+            makeSet();
+        }
+
+        private void makeSet() {
+            for (var i = 0; i < size.length; i++) {
+                size[i] = 1;
+                id[i] = i;
+            }
+        }
+
+        private int find(int x) {
+            while (id[x] != x) {
+                x = id[x];
+            }
+
+            return x;
+        }
+
+        private void union(int x, int y) {
+            int rootX = find(x);
+            int rootY = find(y);
+
+            if (rootX == rootY)
+                return;
+
+            if (size[rootX] < size[rootY]) {
+                size[rootY] += size[rootX];
+                id[rootX] = id[rootY];
+            } else {
+                size[rootX] += size[rootY];
+                id[rootY] = id[rootX];
+            }
+        }
     }
 }
+
