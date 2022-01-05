@@ -1,8 +1,7 @@
-// Given a binary tree, connect the nodes at the same level
+package Trees;// Given a binary tree, connect the nodes at the same level
 
 // Using level order traversal, we connect the current node to next node
 // in the queue
-package src.Trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -71,8 +70,8 @@ public class ConnectSameLevelNodes {
 
         return tmp;
     }
-    public void solution(TreeNode<Integer> root) {
-        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+    public void solution(src.Trees.TreeNode<Integer> root) {
+        Queue<src.Trees.TreeNode<Integer>> queue = new LinkedList<>();
         // add root and null initially
         queue.add(root);
         queue.add(null);
@@ -82,7 +81,7 @@ public class ConnectSameLevelNodes {
             // if its null then it means we are done with
             // current level. so add null again
             // else point next of current node to the first element in queue
-            TreeNode<Integer> tmp = queue.poll();
+            src.Trees.TreeNode<Integer> tmp = queue.poll();
             if (tmp != null) {
                 // point next to first element in queue
                 tmp.setRight(queue.peek());

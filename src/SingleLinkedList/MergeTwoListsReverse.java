@@ -1,8 +1,7 @@
-// given two linked lists, merge them in reverse order
+package SingleLinkedList;// given two linked lists, merge them in reverse order
 
 // Idea is same as merging two sorted linked lists. Instead of merging the nodes and moving right
 // we add the current smallest node at the beginning and move left
-package src.SingleLinkedList;
 
 public class MergeTwoListsReverse {
     public Node mergeListsReverse(Node node1, Node node2) {

@@ -1,4 +1,4 @@
-package src.SingleLinkedList;
+package SingleLinkedList;
 
 /*
 https://www.educative.io/m/merge-two-sorted-linked-lists

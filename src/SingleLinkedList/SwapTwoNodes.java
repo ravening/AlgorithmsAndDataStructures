@@ -3,7 +3,7 @@
 // we keep two pointers for x and y and two previous pointers of x and y
 // first we swap the next pointers of x and y and then swap the next pointers
 // of prev_x and prev_y
-package src.SingleLinkedList;
+package SingleLinkedList;
 
 public class SwapTwoNodes {
     public void solution(int x, int y) {

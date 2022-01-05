@@ -1,23 +1,10 @@
-// given a binary tree, convert it into threaded binary tree
+package Trees;// given a binary tree, convert it into threaded binary tree
 
-package src.Trees;
 
 // solution : Do a reverse inorder traversal with next variable initialized to null
 // when you go right dont change "next". before going left, assign current node to next
 
-class ThreadedNode {
-    int data;
-    ThreadedNode left;
-    ThreadedNode right;
-    ThreadedNode next; // points to inorder successor
 
-    public ThreadedNode(int data, ThreadedNode left, ThreadedNode right, ThreadedNode next) {
-        this.data = data;
-        this.left = left;
-        this.right = right;
-        this.next = next;
-    }
-}
 
 public class ThreadedBinaryTree {
 
