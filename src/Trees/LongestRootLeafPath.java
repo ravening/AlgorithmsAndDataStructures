@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
 https://www.geeksforgeeks.org/print-the-longest-path-from-root-to-leaf-in-a-binary-tree/?ref=rp
  */
 public class LongestRootLeafPath {
-    public List<Integer> solution(TreeNode<Integer> root) {
+    public List<Integer> solution(src.Trees.TreeNode<Integer> root) {
         if (root == null)
             return new ArrayList<>();
 

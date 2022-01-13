@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,15 +8,15 @@ import java.util.Stack;
 https://www.geeksforgeeks.org/print-root-leaf-path-without-using-recursion/
  */
 public class PrintRootLeafPath {
-    public void solution(TreeNode<Integer> root) {
-        Stack<TreeNode<Integer>> stack = new Stack<>();
-        Map<TreeNode<Integer>, TreeNode<Integer>> map = new HashMap<>();
+    public void solution(src.Trees.TreeNode<Integer> root) {
+        Stack<src.Trees.TreeNode<Integer>> stack = new Stack<>();
+        Map<src.Trees.TreeNode<Integer>, src.Trees.TreeNode<Integer>> map = new HashMap<>();
 
         map.put(root, null);
         stack.push(root);
 
         while (!stack.isEmpty()) {
-            TreeNode<Integer> tmp = stack.pop();
+            src.Trees.TreeNode<Integer> tmp = stack.pop();
 
             if (tmp.isLeafNode()) {
                 printPath(tmp, map);
@@ -32,7 +32,7 @@ public class PrintRootLeafPath {
         }
     }
 
-    public void printPath(TreeNode<Integer> node, Map<TreeNode<Integer>, TreeNode<Integer>> map) {
+    public void printPath(src.Trees.TreeNode<Integer> node, Map<src.Trees.TreeNode<Integer>, src.Trees.TreeNode<Integer>> map) {
         Stack<Integer> stack = new Stack<>();
 
         while (node != null) {
@@ -44,5 +44,19 @@ public class PrintRootLeafPath {
             System.out.print(stack.pop() + " ");
         }
         System.out.println();
+    }
+
+    public void printPathWithoutStack(src.Trees.TreeNode<Integer> node, Map<src.Trees.TreeNode<Integer>, src.Trees.TreeNode<Integer>> map) {
+        src.Trees.TreeNode<Integer> tmp = node;
+        src.Trees.TreeNode<Integer> current = null;
+        while (tmp != null) {
+            current = tmp;
+            tmp = map.get(tmp);
+        }
+
+        while (map.containsKey(current)) {
+            System.out.println(current.getData());
+            current = map.get(current);
+        }
     }
 }

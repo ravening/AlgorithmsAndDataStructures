@@ -1,4 +1,4 @@
-package src.Tries;
+package Tries;
 
 import java.util.ArrayList;
 import java.util.List;

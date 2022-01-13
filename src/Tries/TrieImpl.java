@@ -1,4 +1,4 @@
-package src.Tries;// program to add and search a word in the trie
+package Tries;// program to add and search a word in the trie
 
 
 import java.util.ArrayList;

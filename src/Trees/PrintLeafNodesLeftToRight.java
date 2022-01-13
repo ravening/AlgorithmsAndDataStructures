@@ -10,6 +10,43 @@ public class PrintLeafNodesLeftToRight {
     Stack<src.Trees.TreeNode<Integer>> stack1 = new Stack<>();
     Stack<src.Trees.TreeNode<Integer>> stack2 = new Stack<>();
 
+    /*
+    https://www.geeksforgeeks.org/print-leaf-nodes-in-binary-tree-from-left-to-right-using-one-stack/?ref=rp
+     */
+
+    public void solutionUsingOneStack(src.Trees.TreeNode<Integer> root) {
+        if (root == null)
+            return;
+
+        while (true) {
+            if (root != null) {
+                stack1.push(root);
+                root = root.getLeft();
+            } else {
+                if (stack1.isEmpty())
+                    return;
+
+                if (stack1.peek().getRight() == null) {
+                    root = stack1.pop();
+                    if (root.getLeft() == null) {
+                        System.out.println(root.getData());
+                    }
+                }
+
+                while (stack1.peek().getRight() == root) {
+                    root = stack1.pop();
+                    if (stack1.isEmpty())
+                        break;
+                }
+
+                if (stack1.peek().getRight() != null) {
+                    root = stack1.peek().getRight();
+                } else {
+                    root = null;
+                }
+            }
+        }
+    }
     public void leafNodesLeftToRight(src.Trees.TreeNode<Integer> root) {
         if (root == null)
             return;

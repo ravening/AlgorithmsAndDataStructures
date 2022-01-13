@@ -1,6 +1,5 @@
-// Program to find the inorder successor in a binary tree
+package Trees;// Program to find the inorder successor in a binary tree
 
-package src.Trees;
 
 class Previous {
     public VerticalTraversal.Node prev;

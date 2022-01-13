@@ -27,11 +27,11 @@ public class CopyWithArbitPointer {
         ListArbitNode copy = head;
         ListArbitNode tmp = head;
         // create a node and attach next to it.
-        while (copy != null && copy.next != null) {
+        while (copy.next != null) {
             ListArbitNode temp = copy.next;
             copy.next = new ListArbitNode(copy.data);
-            copy.next.next = tmp;
-             copy = temp;
+            copy.next.next = temp;
+            copy = temp;
         }
 
         copy = head;
@@ -49,7 +49,7 @@ public class CopyWithArbitPointer {
 
         copy = head.next;
         ListArbitNode duplicate = copy;
-        while (tmp != null && tmp.next != null) {
+        while (tmp.next != null) {
             tmp.next = tmp.next.next;
             copy.next = copy.next.next;
         }

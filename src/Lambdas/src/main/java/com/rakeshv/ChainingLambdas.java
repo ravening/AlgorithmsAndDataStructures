@@ -1,12 +1,8 @@
-package src.Lambdas.src.main.java.com.rakeshv;
+package com.rakeshv;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-import java.util.function.ToIntFunction;
 
 public class ChainingLambdas {
     public static void main(String[] args) {

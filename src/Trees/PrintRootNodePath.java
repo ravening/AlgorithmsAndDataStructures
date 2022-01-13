@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +7,16 @@ import java.util.List;
 https://www.geeksforgeeks.org/print-path-root-given-node-binary-tree/
  */
 public class PrintRootNodePath {
-    public void solution(TreeNode<Integer> root, int x) {
+    public void solution(src.Trees.TreeNode<Integer> root, int x) {
         List<Integer> array = new ArrayList<>();
-        hasPath(root, x, array);
-
-        array.forEach(y -> System.out.print(y + " "));
+        if (hasPath(root, x, array)){
+            array.forEach(y -> System.out.print(y + " "));
+        } else {
+            System.out.println("No path found");
+        }
     }
 
-    public boolean hasPath(TreeNode<Integer> root, int x, List<Integer> array) {
+    public boolean hasPath(src.Trees.TreeNode<Integer> root, int x, List<Integer> array) {
         if (root == null)
             return false;
 
