@@ -1,4 +1,4 @@
-package src.Arrays;
+package Arrays;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -13,6 +13,9 @@ public class MergeKSortedArrays {
         List<Integer> output = new ArrayList<>();
 
         PriorityQueue<ArrayPair> pq = new PriorityQueue<>(array.length, Comparator.comparingInt(a -> a.value));
+
+        // for sorting in reverse order
+        PriorityQueue<ArrayPair> pqReverse = new PriorityQueue<>(array.length, Comparator.comparingInt(a -> a.value));
 
         for (var i = 0; i < array.length; i++) {
             pq.add(new ArrayPair(array[i][0], i, 0));

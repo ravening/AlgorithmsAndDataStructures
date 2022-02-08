@@ -53,4 +53,30 @@ public class LCABinaryTree {
 
         return  null;
     }
+
+    public int findLevel(Node root, int target, int level) {
+        if (root == null) {
+            return -1;
+        }
+
+        if (root.val == target) {
+            return level;
+        }
+
+        int left = findLevel(root.left, target, level + 1);
+        return (left != -1) ? left : findLevel(root.right, target, level + 1);
+    }
+
+    public int findDistanceBetweenTwoNodes(Node a, Node b) {
+        Node lca = lca(a.val, b.val);
+
+        if (lca != null) {
+            int d1 = findLevel(lca, a.val, 0);
+            int d2 = findLevel(lca, b.val, 0);
+
+            return d1 + d2;
+        }
+
+        return -1;
+    }
 }

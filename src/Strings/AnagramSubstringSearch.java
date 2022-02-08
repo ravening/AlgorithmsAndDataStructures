@@ -2,8 +2,6 @@
 
 package Strings;
 
-import java.util.Arrays;
-
 public class AnagramSubstringSearch {
     public void solution(String string, String pattern) {
         int MAX = 256;
@@ -16,8 +14,12 @@ public class AnagramSubstringSearch {
         // if pattern length is greater than string length then no solution
         if (m > n)
             return;
-        for (int i = 0; i < MAX; i++) {
+
+        for (var i = 0; i < string.length(); i++) {
             countS[string.charAt(i)]++;
+        }
+
+        for (var i = 0; i < pattern.length(); i++) {
             countP[pattern.charAt(i)]++;
         }
 
