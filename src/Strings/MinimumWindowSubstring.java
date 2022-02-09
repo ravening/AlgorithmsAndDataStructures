@@ -55,5 +55,13 @@ public class MinimumWindowSubstring {
         String s = "adobecodebanc";
         String p = "ibac";
         solution(s, p);
+
+        s = "this is a test string";
+        p = "tist";
+        solution(s, p);
+
+        s="geeksforgeeks";
+        p = "ork";
+        solution(s, p);
     }
 }

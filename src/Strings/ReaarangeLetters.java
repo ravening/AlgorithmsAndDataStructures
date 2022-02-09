@@ -16,18 +16,9 @@ public class ReaarangeLetters {
         }
     }
 
+    Comparator<Node> comparator = (o1, o2) -> {return -(o1.count - o2.count);};
     public void solution(String string) {
-        PriorityQueue<Node> pq = new PriorityQueue<>(new Comparator<Node>() {
-            @Override
-            public int compare(Node o1, Node o2) {
-                if (o1.count > o2.count)
-                    return -1;
-                else if (o1.count < o2.count)
-                    return 1;
-                else return 0;
-            }
-        });
-
+        PriorityQueue<Node> pq= new PriorityQueue<>(comparator);
         //get character count
         char[] count = new char[26];
         for (char ch : string.toCharArray()) {

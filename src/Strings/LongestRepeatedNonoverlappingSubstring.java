@@ -1,4 +1,4 @@
-package src.Strings;
+package Strings;
 
 /*
 https://iq.opengenus.org/longest-repeating-non-overlapping-substring/

@@ -1,4 +1,4 @@
-package src.Strings;
+package Strings;
 
 /*
 https://www.geeksforgeeks.org/minimum-removals-required-such-that-given-string-consists-only-of-a-pair-of-alternating-characters/?ref=rp

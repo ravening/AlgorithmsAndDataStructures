@@ -9,6 +9,38 @@ import java.util.Queue;
 https://www.geeksforgeeks.org/find-first-non-repeating-character-stream-characters/?ref=lbp
  */
 public class NonRepeatingCharacter {
+
+    /*
+    https://www.geeksforgeeks.org/first-non-repeating-character-using-one-traversal-of-string-set-2/?ref=lbp
+     */
+    public static void firstNonRepeatingChar(String string) {
+        if (string.length() == 1) {
+            System.out.println(string.charAt(0));
+            return;
+        }
+        int index = -1;
+        int length = string.length();
+
+        for (var ch : string.toCharArray()) {
+            int count = length - (string.replace(Character.toString(ch), "").length());
+            if (count == 1) {
+                index = string.indexOf(ch);
+                break;
+            }
+        }
+
+        if (index != -1) {
+            System.out.println(string.charAt(index));
+        } else {
+            System.out.println("No solution");
+        }
+    }
+
+    public static void main(String[] args) {
+        String string = "geeksforgeeks";
+        firstNonRepeatingChar(string);
+    }
+
     public static void solution(String string) {
         List<Character> list = new LinkedList<>();
         boolean[] repeated = new boolean[256];
