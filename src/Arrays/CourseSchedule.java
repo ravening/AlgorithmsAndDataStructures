@@ -1,9 +1,6 @@
-package src.Arrays;
+package Arrays;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /*
 https://leetcode.com/problems/course-schedule/
@@ -99,4 +96,41 @@ public class CourseSchedule {
     }
 
 
+    /*
+    https://leetcode.com/problems/course-schedule-ii/discuss/1761682/Java-Topological-Sort-with-explanation
+     */
+    public int[] solutionHashMap(int numberCourses, int[][] prerequisites) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        int[] indegree = new int[numberCourses];
+        int[] courses = new int[numberCourses];
+        for (var arr : prerequisites) {
+            List<Integer> list = map.getOrDefault(arr[1], new ArrayList<>());
+            list.add(arr[0]);
+            indegree[arr[0]]++;
+            map.put(arr[1], list);
+        }
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int j : indegree) {
+            if (j == 0) {
+                queue.add(j);
+            }
+        }
+
+        int index = 0;
+        while (!queue.isEmpty()) {
+            int course = queue.poll();
+            courses[index++] = course;
+            if (map.containsKey(course)) {
+                for (var others : map.get(course)) {
+                    indegree[others]--;
+                    if (indegree[others] == 0) {
+                        queue.add(others);
+                    }
+                }
+            }
+        }
+
+        return index == numberCourses ? courses : new int[0];
+    }
 }

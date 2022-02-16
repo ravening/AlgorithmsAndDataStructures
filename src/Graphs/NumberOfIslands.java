@@ -1,4 +1,4 @@
-package src.Graphs;
+package Graphs;
 
 public class NumberOfIslands {
     public int solution(int[][] grid) {

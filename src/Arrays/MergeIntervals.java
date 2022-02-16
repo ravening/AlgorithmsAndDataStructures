@@ -9,7 +9,7 @@
 
 // This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
 
-package src.Arrays;
+package Arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;

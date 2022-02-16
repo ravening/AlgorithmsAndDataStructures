@@ -1,12 +1,6 @@
 package Trees;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.TreeMap;
+import java.util.*;
 
 public class VerticalTraversal {
     static class Node {
@@ -30,6 +24,84 @@ public class VerticalTraversal {
         QueueObject(int level, Node node) {
             this.level = level;
             this.node = node;
+        }
+    }
+
+    static class ListNode {
+        List<Integer> data = new ArrayList<>();
+        ListNode prev;
+        ListNode next;
+
+        ListNode(ListNode p, ListNode n) {
+            this.prev = p;
+            this.next = n;
+        }
+    }
+
+    static class Pair<U, V> {
+        U treeNode;
+        V listNode;
+
+        Pair(U u, V v) {
+            this.treeNode = u;
+            this.listNode = v;
+        }
+    }
+
+    /*
+    https://www.techiedelight.com/print-nodes-binary-tree-vertical-order/`
+     */
+    public void solution(Node root) {
+        ListNode head = new ListNode(null, null);
+        verticalTraversalDll(root, head);
+        print(head);
+    }
+
+    public void verticalTraversalDll(Node root, ListNode head) {
+        if (root == null)
+            return;
+
+        Queue<Pair<Node, ListNode>> queue = new ArrayDeque<>();
+
+        queue.add(new Pair<>(root, head));
+
+        while (!queue.isEmpty()) {
+            Pair<Node, ListNode> tmp = queue.poll();
+            Node node = tmp.treeNode;
+            ListNode listNode = tmp.listNode;
+
+            listNode.data.add(node.data);
+
+            if (node.left != null) {
+                if (listNode.prev == null) {
+                    listNode.prev = new ListNode(null, listNode);
+                }
+
+                queue.add(new Pair<>(node.left, listNode.prev));
+            }
+
+            if (node.right != null) {
+                if (listNode.next == null) {
+                    listNode.next = new ListNode(listNode, null);
+                }
+
+                queue.add(new Pair<>(node.right, listNode.next));
+            }
+        }
+    }
+
+    public void print(ListNode node) {
+        ListNode head = null;
+
+        while (node != null && node.prev != null) {
+            node = node.prev;
+        }
+
+        head = node;
+
+        while (head != null) {
+            System.out.println(head.data);
+            head = head.next;
         }
     }
 
@@ -101,5 +173,7 @@ public class VerticalTraversal {
 
         VerticalTraversal verticalTraversal = new VerticalTraversal();
         verticalTraversal.verticalTraversal(root);
+        System.out.println("======================");
+        verticalTraversal.solution(root);
     }
 }
