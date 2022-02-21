@@ -30,11 +30,7 @@ public class NextGreaterFrequency {
         int[] res = new int[array.length];
 
         for (int j : array) {
-            if (map.containsKey(j)) {
-                map.put(j, map.get(j) + 1);
-            } else {
-                map.put(j, 1);
-            }
+            map.put(j, map.getOrDefault(j, 0) + 1);
         }
 
         res[array.length - 1] = -1;

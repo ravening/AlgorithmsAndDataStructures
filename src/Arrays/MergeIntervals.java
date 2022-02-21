@@ -106,32 +106,30 @@ public class MergeIntervals {
         int start = Integer.MIN_VALUE, end = Integer.MIN_VALUE;
         int i = 0, j = 0;
 
-        while (i < list1.size() || j < list2.size()) {
-            Interval cur = null;
-            if (i >= list1.size())
-                cur = list2.get(j++);
+        while (i < list1.size() && j < list2.size()) {
+            int minStart = Math.min(list1.get(i).start, list2.get(j).start);
+            int maxEnd = Math.max(list1.get(i).end, list2.get(j).end);
 
-            if (j >= list2.size())
-                cur = list1.get(i++);
-
-            if (cur == null)
-                cur = (list1.get(i).start < list2.get(j).start) ? list1.get(i++) : list2.get(j++);
-
-            if (cur.start > end) {
-                if (end > Integer.MIN_VALUE) {
-                    result.add(new Interval(start, end));
+            // check if the minimum end time is greater than max start time (to check overlap)
+            if (Math.min(list1.get(i).end, list2.get(j).end) >= Math.max(list1.get(i).start, list2.get(j).start)) {
+                if (result.size() > 0 && result.get(result.size() - 1).end > minStart) {
+                    result.get(result.size() - 1).end = Math.max(maxEnd, result.get(result.size() - 1).end);
+                } else {
+                    result.add(new Interval(minStart, maxEnd));
                 }
-
-                start = cur.start;
-                end = cur.end;
-            } else {
-                end = Math.max(end, cur.end);
             }
+
+            if (list1.get(i).end < list2.get(j).end) {
+                i++;
+            } else if (list1.get(i).end > list2.get(j).end) {
+                j++;
+            } else {
+                i++;
+                j++;
+            }
+
         }
 
-        if (end > Integer.MIN_VALUE) {
-            result.add(new Interval(start, end));
-        }
         return result;
     }
 }

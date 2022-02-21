@@ -3,7 +3,31 @@ package Trees;
 import java.util.Stack;
 
 public class TreeTraversal {
+    /*
+    https://www.geeksforgeeks.org/iterative-preorder-traversal/
+     */
+    public void iterativePreorder(Node root) {
+        if (root == null)
+            return;
 
+        Stack<Node> stack = new Stack<>();
+        Node cur = root;
+
+        while (cur != null || !stack.isEmpty()) {
+
+            while (cur != null) {
+                System.out.println(cur.val);
+                if (cur.right != null) {
+                    stack.push(cur.right);
+                }
+                cur = cur.left;
+            }
+
+            if (!stack.isEmpty()) {
+                cur = stack.pop();
+            }
+        }
+    }
     public <T> void iterativePreOrderTraversal(src.Trees.TreeNode<T> root) {
         if (root == null)
             return;
