@@ -3,6 +3,26 @@
 package Arrays;
 
 public class TrapRainWater {
+    public int bestSolution(int[] array) {
+        int n = array.length;
+        int i = 0, j = n - 1;
+        int result = 0;
+        int lmax = 0, rmax = 0;
+        while (i <= j) {
+            if (lmax <= rmax) {
+                result += Math.max(0, lmax - array[i]);
+                lmax = Math.max(lmax, array[i]);
+                i++;
+            } else {
+                result += Math.max(0, rmax - array[j]);
+                rmax = Math.max(rmax, array[j]);
+                j--;
+            }
+        }
+
+        return result;
+    }
+
     public void solution(int[] array) {
         int n = array.length;
 

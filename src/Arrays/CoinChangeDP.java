@@ -1,4 +1,4 @@
-package src.Arrays;// given an amount and coin, find the number of ways to make the amount using
+package Arrays;// given an amount and coin, find the number of ways to make the amount using
 // the coins
 
 
