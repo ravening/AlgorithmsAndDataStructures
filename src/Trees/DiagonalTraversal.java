@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -7,14 +7,14 @@ import java.util.Queue;
 https://www.geeksforgeeks.org/iterative-diagonal-traversal-binary-tree/
  */
 public class DiagonalTraversal {
-    public void solution(TreeNode<Integer> root) {
-        Queue<TreeNode<Integer>> queue = new LinkedList<>();
+    public void solution(src.Trees.TreeNode<Integer> root) {
+        Queue<src.Trees.TreeNode<Integer>> queue = new LinkedList<>();
 
         queue.add(root);
         queue.add(null);
 
         while (!queue.isEmpty()) {
-            TreeNode<Integer> node = queue.poll();
+            src.Trees.TreeNode<Integer> node = queue.poll();
 
             if (node != null) {
                 while (node != null) {
