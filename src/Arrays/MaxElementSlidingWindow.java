@@ -1,7 +1,6 @@
 package Arrays;
 
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 /*
 https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k-using-stack-in-on-time/?ref=lbp
@@ -11,6 +10,7 @@ public class MaxElementSlidingWindow {
     int[] maxUpto;
     Stack<Integer> stack;
     int length;
+    Deque<Integer> deque;
 
     MaxElementSlidingWindow(int[] a, int k) {
         this.array = new int[a.length];
@@ -18,8 +18,36 @@ public class MaxElementSlidingWindow {
         this.maxUpto = new int[a.length];
         this.stack = new Stack<>();
         this.length = k;
+        this.deque = new ArrayDeque<>();
     }
 
+    /*
+    https://leetcode.com/problems/sliding-window-maximum/discuss/65884/Java-O(n)-solution-using-deque-with-explanation
+     */
+    private void betterSolution() {
+        List<Integer> result = new ArrayList<>();
+
+        for (var i = 0; i < array.length; i++) {
+            while (!deque.isEmpty() && deque.peek() < i - this.length + 1) {
+                deque.poll();
+            }
+
+            while (!deque.isEmpty() && array[deque.peekLast()] < array[i]) {
+                deque.poll();
+            }
+
+            deque.offer(i);
+
+            if (i >= this.length - 1) {
+                result.add(array[deque.peek()]);
+            }
+        }
+
+        for (var i : result) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
     private void solution() {
         Arrays.fill(maxUpto, 0);
         stack.push(0);
@@ -52,6 +80,7 @@ public class MaxElementSlidingWindow {
                 new MaxElementSlidingWindow(array, 3);
 
         slidingWindow.solution();
+        slidingWindow.betterSolution();
 
         int[] arr = {6, 7, 5, 2, 1, 7, 2, 1, 10};
         slidingWindow = new MaxElementSlidingWindow(arr, 2);
