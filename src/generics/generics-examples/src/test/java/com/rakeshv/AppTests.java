@@ -25,7 +25,7 @@ public class AppTests
      */
     public static Test suite()
     {
-        return new TestSuite( com.rakeshv.Person.class );
+        return new TestSuite( Person.class );
     }
 
     /**

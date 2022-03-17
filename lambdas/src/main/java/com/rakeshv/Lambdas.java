@@ -10,6 +10,10 @@ import java.util.Optional;
  */
 public class Lambdas
 {
+    private void start() {
+        Thread thread = new Thread(runnable);
+        thread.start();
+    }
     public static void main( String[] args )
     {
         Long value = null;
@@ -48,4 +52,6 @@ public class Lambdas
     public String doThisIfNull() {
         return ("i accept ONLY null values");
     }
+
+    Runnable runnable = () -> System.out.println( "Hello World!" );
 }

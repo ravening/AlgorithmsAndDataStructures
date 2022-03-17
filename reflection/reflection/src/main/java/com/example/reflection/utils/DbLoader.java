@@ -15,23 +15,23 @@ public class DbLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Person john = Person.builder()
-                .firstName("John")
-                .lastName("Doe")
-                .age(20).build();
+        // Person john = Person.builder()
+        //         .firstName("John")
+        //         .lastName("Doe")
+        //         .age(20).build();
 
-        Person sam = Person.builder()
-                .firstName("Samantha")
-                .lastName("Woods")
-                .age(30).build();
+        // Person sam = Person.builder()
+        //         .firstName("Samantha")
+        //         .lastName("Woods")
+        //         .age(30).build();
 
-        Person sarah = Person.builder()
-                .firstName("Sarah")
-                .lastName("Drasner")
-                .age(25).build();
+        // Person sarah = Person.builder()
+        //         .firstName("Sarah")
+        //         .lastName("Drasner")
+        //         .age(25).build();
 
 
-        List<Person> personList = List.of(john, sam, sarah);
-        personRepository.saveAll(personList);
+        // List<Person> personList = List.of(john, sam, sarah);
+        // personRepository.saveAll(personList);
     }
 }
