@@ -135,6 +135,9 @@ public class WordBreak {
         wordBreak.wordBreak(word, dictionary);
         word = "ilovesamsungmobile";
         wordBreak.wordBreak(word, dictionary);
+
+        String s = "wordlength";
+        System.out.println(s.substring(s.length()));
     }
 
 

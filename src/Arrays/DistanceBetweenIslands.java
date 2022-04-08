@@ -62,15 +62,15 @@ public class DistanceBetweenIslands {
                 int newX = pair.x + rows[i];
                 int newY = pair.y + column[i];
 
-                if (isValid(newX, newY, graph.length, graph[0].length)
-                    && visited[newX][newY] == 0) {
-                    queue.add(new Pair(newX, newY, pair.id));
-                    distance[newX][newY] = distance[pair.x][pair.y] + 1;
-                    visited[newX][newY] = pair.id;
-                } else if (isValid(newX, newY, graph.length, graph[0].length) &&
-                            visited[newX][newY] != 0 &&
-                            visited[newX][newY] != pair.id) {
-                    return distance[newX][newY] + distance[pair.x][pair.y];
+                if (isValid(newX, newY, graph.length, graph[0].length)) {
+                    if (visited[newX][newY] == 0) {
+                        queue.add(new Pair(newX, newY, pair.id));
+                        distance[newX][newY] = distance[pair.x][pair.y] + 1;
+                        visited[newX][newY] = pair.id;
+                    } else if (visited[newX][newY] != 0 &&
+                                visited[newX][newY] != pair.id) {
+                        return distance[newX][newY] + distance[pair.x][pair.y];
+                    }
                 }
             }
         }

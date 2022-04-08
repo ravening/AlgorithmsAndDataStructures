@@ -11,9 +11,7 @@ public class DelayedProjects {
         Queue<String> queue = new LinkedList<>();
 
         for (String[] entry : dependencies) {
-            if (!map.containsKey(entry[0])) {
-                map.put(entry[0], new HashSet<>());
-            }
+            map.computeIfAbsent(entry[0], new HashSet());
             map.get(entry[0]).add(entry[1]);
         }
 

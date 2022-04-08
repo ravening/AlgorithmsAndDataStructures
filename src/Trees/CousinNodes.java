@@ -7,6 +7,8 @@ import java.util.Queue;
 
 /*
 https://www.geeksforgeeks.org/check-if-two-nodes-are-cousins-in-a-binary-tree-set-2/?ref=lbp
+
+https://leetcode.com/problems/cousins-in-binary-tree/submissions/
  */
 public class CousinNodes {
     static class Pair {

@@ -35,7 +35,7 @@ public class LongestSubarraySumK {
 
     public static void main(String[] args) {
         LongestSubarraySumK longest = new LongestSubarraySumK();
-        int[] arr = {10, 5, 2, 7, 1, 9};
-        System.out.println(longest.solution(arr, 15));
+        int[] arr = {-5, 8, -14, 2, 4, 12};
+        System.out.println(longest.solution(arr, -5));
     }
 }

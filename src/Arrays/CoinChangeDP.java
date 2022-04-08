@@ -7,16 +7,10 @@ import java.util.Arrays;
 public class CoinChangeDP {
     public void minimumCoins(int[] coins, int amount) {
         int[] table = new int[amount + 1];
-        Arrays.fill(table, Integer.MAX_VALUE);
-        table[0] = 0;
-        for (var i = 1; i <= amount; i++) {
-            for (var j = 0; j < coins.length; j++) {
-                if (coins[j] <= i) {
-                    int tmp = table[i - coins[j]];
-                    if (tmp != Integer.MAX_VALUE && (tmp + 1 < table[i])) {
-                        table[i] = tmp + 1;
-                    }
-                }
+        table[0] = 1;
+        for (var coin : coins) {
+            for (var i = coin; i <= amount; i++) {
+                table[i] += table[i - coin];
             }
         }
 

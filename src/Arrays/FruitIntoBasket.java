@@ -12,11 +12,7 @@ public class FruitIntoBasket {
         Map<Integer, Integer> map = new HashMap<>();
 
         for (var i = 0; i < array.length; i++) {
-            if (map.containsKey(array[i])) {
-                map.put(array[i], map.get(array[i]) + 1);
-            } else {
-                map.put(array[i],1);
-            }
+            map.put(array[i], map.getOrDefault(array[i], 0) + 1);
 
             while (j < array.length && map.size() > 2) {
                 map.put(array[j], map.get(array[j]) - 1);

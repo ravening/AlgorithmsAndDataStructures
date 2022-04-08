@@ -31,6 +31,7 @@ public class MajorityElement {
                 majorityIndex = i;
                 count = 1;
             }
+            System.out.println("count is " + count + " and index is " + majorityIndex);
         }
 
         return array[majorityIndex];

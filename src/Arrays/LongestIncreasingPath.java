@@ -24,7 +24,7 @@ public class LongestIncreasingPath {
     private static int dfs(int[][] graph, int[][] dp, int x, int y) {
         if (dp[x][y] != 0)
             return dp[x][y];
-        int max = 0;
+        int max = 1;
 
         for (var dir : dirs) {
             int newX = x + dir[0];
