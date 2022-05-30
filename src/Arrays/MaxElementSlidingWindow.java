@@ -33,7 +33,8 @@ public class MaxElementSlidingWindow {
             }
 
             while (!deque.isEmpty() && array[deque.peekLast()] < array[i]) {
-                deque.poll();
+//                deque.poll();
+                deque.pollLast();
             }
 
             deque.offer(i);

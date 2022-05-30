@@ -1,14 +1,14 @@
 // given a binary tree, convert it into doubly linked list
-package src.Trees;
+package Trees;
 
 
 public class BinaryTreeToDll {
 
-    static TreeNode<Integer> prev = null;
-    TreeNode<Integer> head;
+    static src.Trees.TreeNode<Integer> prev = null;
+    src.Trees.TreeNode<Integer> head;
 
     // https://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/
-    public void inPlaceBinaryTreeToDll(TreeNode<Integer> root) {
+    public void inPlaceBinaryTreeToDll(src.Trees.TreeNode<Integer> root) {
         if (root == null)
             return;
 
@@ -28,7 +28,7 @@ public class BinaryTreeToDll {
 
     }
 
-    public TreeNode<Integer> solution(TreeNode<Integer> root) {
+    public src.Trees.TreeNode<Integer> solution(src.Trees.TreeNode<Integer> root) {
         if (root == null)
             return null;
 
@@ -46,8 +46,8 @@ public class BinaryTreeToDll {
     }
 
     // given a binary tree, return the leaves of the tree as a dobuly linked list
-    TreeNode<Integer> temp = head;
-    public TreeNode<Integer> returnLeaves(TreeNode<Integer> root) {
+    src.Trees.TreeNode<Integer> temp = head;
+    public src.Trees.TreeNode<Integer> returnLeaves(src.Trees.TreeNode<Integer> root) {
         if (root.getLeft() == null && root.getRight() == null)
             return null;
 
@@ -66,7 +66,7 @@ public class BinaryTreeToDll {
     }
 
     //https://www.techiedelight.com/extract-leaves-of-binary-tree-into-doubly-linked-list/
-    public TreeNode<Integer> getLeaves(TreeNode<Integer> root, TreeNode<Integer> head) {
+    public src.Trees.TreeNode<Integer> getLeaves(src.Trees.TreeNode<Integer> root, src.Trees.TreeNode<Integer> head) {
         if (root == null)
             return null;
 
@@ -87,7 +87,7 @@ public class BinaryTreeToDll {
         return root;
     }
 
-    private boolean isLeaf(TreeNode<Integer> root) {
+    private boolean isLeaf(src.Trees.TreeNode<Integer> root) {
         return root.getLeft() == null && root.getRight() == null;
     }
 }

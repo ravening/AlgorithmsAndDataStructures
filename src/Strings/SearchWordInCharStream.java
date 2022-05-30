@@ -6,6 +6,7 @@
 
 package Strings;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -16,27 +17,34 @@ public class SearchWordInCharStream {
 
     public static void solution(Character c) {
         // append the character to each of the dictionary word
-        for (String string : dict.keySet()) {
-            dict.get(string).append(c);
 
-            // check if it matches any of the dictionary word
-            if (dict.get(string).toString().equals(string)) {
-                answer.put(string, answer.get(string) + 1);
-            }
+        dict.keySet()
+                .parallelStream()
+                .forEach(string -> processCharacter(string, c));
+    }
 
-            // if lnegth of the character stream is as the key then delete the first character
-            if (dict.get(string).length() == string.length()) {
-                dict.get(string).deleteCharAt(0);
-            }
+    public static void processCharacter(String string, Character c) {
+        dict.get(string).append(c);
+
+        // check if it matches any of the dictionary word
+        if (dict.get(string).toString().equals(string)) {
+            answer.put(string, answer.get(string) + 1);
+        }
+
+        // if length of the character stream is as the key then delete the first character
+        if (dict.get(string).length() == string.length()) {
+            dict.get(string).deleteCharAt(0);
         }
     }
 
     public static void main(String args[]) {
         String[] dictionary = {"aca", "cat", "hello", "world"};
-        for (String string : dictionary) {
-            dict.put(string, new StringBuilder());
-            answer.put(string, 0);
-        }
+
+        Arrays.stream(dictionary)
+                .forEach(string -> {
+                    dict.put(string, new StringBuilder());
+                    answer.put(string, 0);
+                });
 
         String stream = "acacabcatghhellomvnsdb";
 

@@ -1,10 +1,10 @@
-package src.Trees;
+package Trees;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class MinimumDepth {
-    public int solution(TreeNode<Integer> root) {
+    public int solution(src.Trees.TreeNode<Integer> root) {
         if (root == null)
             return 0;
 
@@ -13,7 +13,7 @@ public class MinimumDepth {
 
         while (!queue.isEmpty()) {
             Entry tmp = queue.poll();
-            TreeNode<Integer> node = tmp.getNode();
+            src.Trees.TreeNode<Integer> node = tmp.getNode();
             int depth = tmp.getDepth();
 
             if (node.isLeafNode()) {
@@ -33,15 +33,15 @@ public class MinimumDepth {
 }
 
 class Entry {
-    TreeNode<Integer> node;
+    src.Trees.TreeNode<Integer> node;
     int depth;
 
-    public Entry(TreeNode<Integer> node, int depth) {
+    public Entry(src.Trees.TreeNode<Integer> node, int depth) {
         this.node = node;
         this.depth = depth;
     }
 
-    public TreeNode<Integer> getNode() {
+    public src.Trees.TreeNode<Integer> getNode() {
         return node;
     }
 
@@ -49,7 +49,7 @@ class Entry {
         return depth;
     }
 
-    public void setNode(TreeNode<Integer> node) {
+    public void setNode(src.Trees.TreeNode<Integer> node) {
         this.node = node;
     }
 

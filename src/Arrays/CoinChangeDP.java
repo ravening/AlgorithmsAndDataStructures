@@ -3,6 +3,7 @@ package Arrays;// given an amount and coin, find the number of ways to make the 
 
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class CoinChangeDP {
     public void minimumCoins(int[] coins, int amount) {
@@ -13,6 +14,8 @@ public class CoinChangeDP {
                 table[i] += table[i - coin];
             }
         }
+
+        int sum = IntStream.range(0, coins.length).sum();
 
         System.out.println(table[amount]);
     }

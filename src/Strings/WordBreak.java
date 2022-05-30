@@ -1,4 +1,4 @@
-package src.Strings;
+package Strings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -98,6 +98,7 @@ public class WordBreak {
         System.out.println();
         wordBreakUtil(s, "");
     }
+
 
 
     /*
