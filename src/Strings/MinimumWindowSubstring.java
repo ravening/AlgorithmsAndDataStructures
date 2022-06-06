@@ -22,19 +22,22 @@ public class MinimumWindowSubstring {
 
         int start = 0, length = Integer.MAX_VALUE, startIndex = -1, count = 0;
         for (var i = 0; i < len1; i++) {
-            sCount[string.charAt(i)]++;
+            char ch = string.charAt(i);
+            sCount[ch]++;
 
-            if (sCount[string.charAt(i)] <= pCount[string.charAt(i)]) {
+            if (sCount[ch] <= pCount[ch]) {
                 count++;
             }
 
+            char startChar = string.charAt(start);
             if (count == len2) {
-                while (sCount[string.charAt(start)] > pCount[string.charAt(start)] || pCount[string.charAt(start)] == 0) {
-                    if (sCount[string.charAt(start)] > pCount[string.charAt(start)]) {
-                        sCount[string.charAt(start)]--;
+                while (sCount[startChar] > pCount[startChar] || pCount[startChar] == 0) {
+                    if (sCount[startChar] > pCount[startChar]) {
+                        sCount[startChar]--;
                     }
 
                     start++;
+                    startChar = string.charAt(start);
                 }
 
                 if (length > (i - start + 1)) {
@@ -53,7 +56,7 @@ public class MinimumWindowSubstring {
 
     public static void main(String[] args) {
         String s = "adobecodebanc";
-        String p = "ibac";
+        String p = "abc";
         solution(s, p);
 
         s = "this is a test string";
