@@ -9,8 +9,6 @@
 // subsequence of bigger length string
 package Strings;
 
-import java.awt.image.Kernel;
-
 public class CountPalindromicSubsequence {
     public int solution(String string) {
         if (string == null || string.length() == 0)

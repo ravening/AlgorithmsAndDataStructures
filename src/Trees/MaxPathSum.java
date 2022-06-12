@@ -12,6 +12,11 @@ class Node {
         this.left = left;
         this.right = right;
     }
+
+    public Node(int val) {
+        this.val = val;
+        this.left = this.right = null;
+    }
 }
 
 class result {

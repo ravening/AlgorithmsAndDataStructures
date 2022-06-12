@@ -1,4 +1,4 @@
-package src.Arrays;
+package Arrays;
 
 /*
 https://www.geeksforgeeks.org/find-duplicates-constant-array-elements-0-n-1-o1-space/?ref=rp

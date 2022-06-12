@@ -1,4 +1,4 @@
-package src.Strings;// https://www.geeksforgeeks.org/longest-common-anagram-subsequence/
+package Strings;// https://www.geeksforgeeks.org/longest-common-anagram-subsequence/
 // given two string, find the longest common anagram subsequence
 
 public class LongestCommonAnagramSubsequence {

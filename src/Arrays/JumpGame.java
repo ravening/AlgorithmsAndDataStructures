@@ -1,4 +1,4 @@
-package src.Arrays;
+package Arrays;
 
 /*
 https://towardsdatascience.com/tackling-jump-game-problems-leetcode-e0a718e7dfba

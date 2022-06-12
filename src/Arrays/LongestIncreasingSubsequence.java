@@ -1,4 +1,4 @@
-package src.Arrays;
+package Arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,6 +62,38 @@ public class LongestIncreasingSubsequence {
         }
 
         System.out.println(max);
+    }
+
+    public static void betterSolution(int[] array) {
+        List<Integer>[] lists = new List[array.length];
+
+        for (var i = 0; i < array.length; i++) {
+            lists[i] = new ArrayList<>();
+        }
+
+        lists[0].add(array[0]);
+
+        for (var i = 1; i < array.length; i++) {
+            for (var j = 0; j < i; j++) {
+                if (array[i] > array[j] && lists[i].size() < lists[j].size() + 1) {
+                    lists[i].clear();
+                    lists[i].addAll(lists[i]);
+                }
+            }
+            lists[i].add(array[i]);
+        }
+
+        int max = lists[0].size();
+        List<Integer> maxList = lists[0];
+
+        for (var i = 1; i < array.length; i++) {
+            if (lists[i].size() > max) {
+                max = lists[i].size();
+                maxList = lists[i];
+            }
+        }
+        maxList.forEach(x -> System.out.print(x + " "));
+        System.out.println();
     }
 
     public static void solution(int[] array) {

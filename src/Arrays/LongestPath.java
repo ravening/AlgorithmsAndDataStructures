@@ -12,7 +12,7 @@ public class LongestPath {
         int[][] dp = new int[matrix.length][matrix[0].length];
 
         for (var i = 0; i < matrix.length; i++) {
-            Arrays.fill(matrix[i], -1);
+            Arrays.fill(dp[i], -1);
         }
 
         for (int i = 0; i < matrix.length; i++) {
