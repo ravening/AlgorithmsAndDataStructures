@@ -14,13 +14,16 @@ package Arrays;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MergeIntervals {
     class Interval {
         int start;
         int end;
 
+        Map<Integer, Interval> map = new HashMap<>();
         public Interval(int start, int end) {
             this.start = start;
             this.end = end;

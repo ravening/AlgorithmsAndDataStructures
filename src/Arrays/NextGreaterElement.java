@@ -1,5 +1,5 @@
 // given an array of elements, print the next greater element to the right of it
-package src.Arrays;
+package Arrays;
 
 import java.util.Arrays;
 import java.util.Stack;

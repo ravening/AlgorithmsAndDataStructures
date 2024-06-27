@@ -9,7 +9,7 @@ https://practice.geeksforgeeks.org/problems/longest-k-unique-characters-substrin
 public class LongestKUniqueCharSubstring {
     public static void solution(String s, int K) {
         Map<Character, Integer> map = new HashMap<>();
-        int start = 0, startIndex = -1;
+        int start = 0;
         int result = 0;
         for (var i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);

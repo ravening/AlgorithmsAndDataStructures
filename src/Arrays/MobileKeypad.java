@@ -1,4 +1,4 @@
-package src.Arrays;
+package Arrays;
 
 /*
 https://www.geeksforgeeks.org/mobile-numeric-keypad-problem/
