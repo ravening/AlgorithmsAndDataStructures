@@ -12,21 +12,6 @@ public class LC3 {
         System.out.println(result.getResult(string));
     }
 
-    public static class Result {
-        int startIndex;
-        int endIndex;
-
-        public Result() {
-            this.startIndex = 0;
-            this.endIndex = 0;
-        }
-
-        public String getResult(String s) {
-            return s.substring(startIndex, endIndex);
-        }
-    }
-
-
     public Result solution(String string) {
         Result result = new Result();
         int[] array = new int[256];

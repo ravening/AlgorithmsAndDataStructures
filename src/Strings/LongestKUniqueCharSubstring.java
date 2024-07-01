@@ -22,10 +22,7 @@ public class LongestKUniqueCharSubstring {
 
             while (map.size() > K && start <= i) {
                 map.put(s.charAt(start), map.get(s.charAt(start)) - 1);
-
-                if (map.get(s.charAt(start)) == 0) {
-                    map.remove(s.charAt(start));
-                }
+                map.remove(s.charAt(start), 0);
                 start++;
             }
         }
