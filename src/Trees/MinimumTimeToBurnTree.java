@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 /*
 https://www.geeksforgeeks.org/minimum-time-to-burn-a-tree-starting-from-a-leaf-node/

@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 public class TreeNode<T> {
     private T data;

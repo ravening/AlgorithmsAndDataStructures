@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 /*
 https://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/

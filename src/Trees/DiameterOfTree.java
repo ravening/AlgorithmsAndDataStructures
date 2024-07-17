@@ -13,12 +13,12 @@ public class DiameterOfTree {
             this.diameter = diameter;
         }
     }
-    public int diameter(src.Trees.TreeNode<Integer> root) {
+    public int diameter(Trees.TreeNode<Integer> root) {
         Pair pair = diameterHelper(root);
         return pair.diameter;
     }
 
-    public Pair diameterHelper(src.Trees.TreeNode<Integer> root) {
+    public Pair diameterHelper(Trees.TreeNode<Integer> root) {
         if (root == null)
             return new Pair(0, 0);
 

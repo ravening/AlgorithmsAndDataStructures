@@ -4,7 +4,7 @@ package Trees;
 https://www.geeksforgeeks.org/print-nodes-distance-k-given-node-binary-tree/
  */
 public class NodesAtDistanceK {
-    public int printNodesAtDistanceK(src.Trees.TreeNode<Integer> root, src.Trees.TreeNode<Integer> target, int K) {
+    public int printNodesAtDistanceK(Trees.TreeNode<Integer> root, Trees.TreeNode<Integer> target, int K) {
         if (root == null)
             return -1;
 
@@ -39,7 +39,7 @@ public class NodesAtDistanceK {
         return -1;
     }
 
-    public void printChildrenAtDistanceK(src.Trees.TreeNode<Integer> node, int K) {
+    public void printChildrenAtDistanceK(Trees.TreeNode<Integer> node, int K) {
         if (node == null || K < 0)
             return;
 

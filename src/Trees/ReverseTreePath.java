@@ -7,9 +7,9 @@ import java.util.List;
 https://www.geeksforgeeks.org/reverse-tree-path/?ref=lbp
  */
 public class ReverseTreePath {
-    List<src.Trees.TreeNode<Integer>> list = new ArrayList<>();
+    List<Trees.TreeNode<Integer>> list = new ArrayList<>();
 
-    public void solution(src.Trees.TreeNode<Integer> root, int x) {
+    public void solution(Trees.TreeNode<Integer> root, int x) {
         if (root == null)
             return;
 

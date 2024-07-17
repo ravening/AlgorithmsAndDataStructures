@@ -4,7 +4,7 @@ package Trees;
 https://practice.geeksforgeeks.org/problems/children-sum-parent/1
  */
 public class ChildrenSumParent {
-    public int solution(src.Trees.TreeNode<Integer> root) {
+    public int solution(Trees.TreeNode<Integer> root) {
         if (root == null || (root.getLeft() == null && root.getRight() == null))
             return 1;
 

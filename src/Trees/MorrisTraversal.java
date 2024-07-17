@@ -4,7 +4,7 @@ package Trees;
 https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/
  */
 public class MorrisTraversal {
-    src.Trees.TreeNode<Integer> root;
+    Trees.TreeNode<Integer> root;
 
     MorrisTraversal() {
         root = null;
@@ -28,8 +28,8 @@ public class MorrisTraversal {
         if (root == null)
             return;
 
-        src.Trees.TreeNode<Integer> prev;
-        src.Trees.TreeNode<Integer> current = root;
+        Trees.TreeNode<Integer> prev;
+        Trees.TreeNode<Integer> current = root;
 
         while (current != null) {
             // if the left child is null then we have encountered the left most child
@@ -69,9 +69,9 @@ public class MorrisTraversal {
         this.root = this.insertTreeNode(this.root, x);
     }
 
-    private src.Trees.TreeNode<Integer> insertTreeNode(src.Trees.TreeNode<Integer> node, Integer x) {
+    private Trees.TreeNode<Integer> insertTreeNode(Trees.TreeNode<Integer> node, Integer x) {
         if (node == null) {
-            return new src.Trees.TreeNode<Integer>(x);
+            return new Trees.TreeNode<Integer>(x);
         }
 
         if (x.equals(node.getData()))

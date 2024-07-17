@@ -17,7 +17,7 @@ public class KthLargest {
         kthLargest.solution(3);
     }
 
-    src.Trees.TreeNode<Integer> root;
+    Trees.TreeNode<Integer> root;
 
     KthLargest() {
         root = null;
@@ -27,9 +27,9 @@ public class KthLargest {
         this.root = this.insertNode(root, x);
     }
 
-    private src.Trees.TreeNode<Integer> insertNode(src.Trees.TreeNode<Integer> root, Integer x) {
+    private Trees.TreeNode<Integer> insertNode(Trees.TreeNode<Integer> root, Integer x) {
         if (root == null) {
-            root = new src.Trees.TreeNode<Integer>(x);
+            root = new Trees.TreeNode<Integer>(x);
             return root;
         }
 
@@ -50,7 +50,7 @@ public class KthLargest {
         kthLargest(root, k, counter);
     }
 
-    private void kthLargest(src.Trees.TreeNode<Integer> root, int k, Counter counter) {
+    private void kthLargest(Trees.TreeNode<Integer> root, int k, Counter counter) {
         if (root == null || counter.count >= k)
             return;
 
@@ -66,11 +66,11 @@ public class KthLargest {
         kthLargest(root.getLeft(), k , counter);
     }
 
-    private src.Trees.TreeNode<Integer> kthLargestMorris(src.Trees.TreeNode<Integer> root, int k) {
+    private Trees.TreeNode<Integer> kthLargestMorris(Trees.TreeNode<Integer> root, int k) {
         if (root == null)
             return null;
 
-        src.Trees.TreeNode<Integer> result = null;
+        Trees.TreeNode<Integer> result = null;
         int count = 0;
         while (root != null) {
             if (root.getRight() == null) {
@@ -80,7 +80,7 @@ public class KthLargest {
 
                 root = root.getLeft();
             } else {
-                src.Trees.TreeNode<Integer> successor = root.getRight();
+                Trees.TreeNode<Integer> successor = root.getRight();
 
                 while (successor.getLeft() != null && successor.getLeft() != root) {
                     successor = successor.getLeft();

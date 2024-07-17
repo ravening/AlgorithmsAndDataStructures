@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 import java.util.Stack;
 

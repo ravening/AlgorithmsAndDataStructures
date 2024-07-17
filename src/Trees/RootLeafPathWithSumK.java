@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 /*
 https://www.geeksforgeeks.org/remove-nodes-from-binary-tree-such-that-sum-of-all-remaining-root-to-leaf-paths-is-atleast-k/?ref=rp

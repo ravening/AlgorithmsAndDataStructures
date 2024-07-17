@@ -1,6 +1,6 @@
 package Trees;
 
-import src.Trees.TreeNode;
+import Trees.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ public class InorderLevelorder {
         build(inorder, 0, inorder.length -1, levelOrder, map);
     }
 
-    public src.Trees.TreeNode<Integer> build(int[] inorder, int start, int end, int[] levelOrder, Map<Integer, Integer> map) {
+    public Trees.TreeNode<Integer> build(int[] inorder, int start, int end, int[] levelOrder, Map<Integer, Integer> map) {
         if (start > end) {
             return  null;
         }
@@ -32,7 +32,7 @@ public class InorderLevelorder {
                 index = j;
             }
         }
-        src.Trees.TreeNode<Integer> node = new TreeNode<Integer>(inorder[index]);
+        Trees.TreeNode<Integer> node = new TreeNode<Integer>(inorder[index]);
 
         if (start == end) {
             return node;

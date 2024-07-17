@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 public class MirrorBinaryTree {
     public TreeNode<Integer> solution(TreeNode<Integer> root) {

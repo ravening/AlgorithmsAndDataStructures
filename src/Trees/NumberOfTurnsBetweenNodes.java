@@ -4,7 +4,7 @@ package Trees;
 https://www.geeksforgeeks.org/number-turns-reach-one-node-binary-tree/
  */
 public class NumberOfTurnsBetweenNodes {
-    public int numberOfTurns(src.Trees.TreeNode<Integer> root, int a, int b) {
+    public int numberOfTurns(Trees.TreeNode<Integer> root, int a, int b) {
         LCABinaryTree lca = new LCABinaryTree();
         Node lcaNode = lca.lca(a, b);
 

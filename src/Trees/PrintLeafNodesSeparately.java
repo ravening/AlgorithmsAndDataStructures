@@ -10,11 +10,11 @@ https://www.geeksforgeeks.org/print-left-and-right-leaf-nodes-separately-in-bina
  */
 public class PrintLeafNodesSeparately {
 
-    public static void printLeafNode(src.Trees.TreeNode<Integer> root) {
+    public static void printLeafNode(Trees.TreeNode<Integer> root) {
         if (root == null)
             return;
 
-        Queue<src.Trees.TreeNode<Integer>> queue = new LinkedList<>();
+        Queue<Trees.TreeNode<Integer>> queue = new LinkedList<>();
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();
 
@@ -22,7 +22,7 @@ public class PrintLeafNodesSeparately {
         while (!queue.isEmpty()) {
             int size = queue.size();
             while (size > 0) {
-                src.Trees.TreeNode<Integer> tmp = queue.remove();
+                Trees.TreeNode<Integer> tmp = queue.remove();
                 if (tmp.getLeft() != null) {
                     queue.add(tmp.getLeft());
                     if (tmp.getLeft().isLeafNode())

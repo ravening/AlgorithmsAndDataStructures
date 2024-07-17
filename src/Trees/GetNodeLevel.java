@@ -7,11 +7,11 @@ import java.util.Queue;
 https://www.geeksforgeeks.org/get-level-node-binary-tree-iterative-approach/?ref=rp
  */
 public class GetNodeLevel {
-    public int getLevelOfNode(src.Trees.TreeNode<Integer> root, int x) {
+    public int getLevelOfNode(Trees.TreeNode<Integer> root, int x) {
         if (root == null)
             return -1;
 
-        Queue<src.Trees.TreeNode<Integer>> queue = new LinkedList<>();
+        Queue<Trees.TreeNode<Integer>> queue = new LinkedList<>();
         queue.add(root);
         int level = 1;
 
@@ -19,7 +19,7 @@ public class GetNodeLevel {
             int size = queue.size();
 
             while (size > 0) {
-                src.Trees.TreeNode<Integer> tmp = queue.remove();
+                Trees.TreeNode<Integer> tmp = queue.remove();
                 if (tmp.getData() == x) {
                     return level;
                 }

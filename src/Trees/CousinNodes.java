@@ -1,6 +1,6 @@
 package Trees;
 
-import src.Trees.TreeNode;
+import Trees.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -12,8 +12,8 @@ https://leetcode.com/problems/cousins-in-binary-tree/submissions/
  */
 public class CousinNodes {
     static class Pair {
-        src.Trees.TreeNode<Integer> node;
-        src.Trees.TreeNode<Integer> parent;
+        Trees.TreeNode<Integer> node;
+        Trees.TreeNode<Integer> parent;
 
         public Pair(TreeNode<Integer> node, TreeNode<Integer> parent) {
             this.node = node;

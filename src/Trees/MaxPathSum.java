@@ -1,6 +1,6 @@
 package Trees;
 
-import src.Trees.TreeNode;
+import Trees.TreeNode;
 
 class Node {
     public int val;

@@ -70,8 +70,8 @@ public class ConnectSameLevelNodes {
 
         return tmp;
     }
-    public void solution(src.Trees.TreeNode<Integer> root) {
-        Queue<src.Trees.TreeNode<Integer>> queue = new LinkedList<>();
+    public void solution(Trees.TreeNode<Integer> root) {
+        Queue<Trees.TreeNode<Integer>> queue = new LinkedList<>();
         // add root and null initially
         queue.add(root);
         queue.add(null);
@@ -81,7 +81,7 @@ public class ConnectSameLevelNodes {
             // if its null then it means we are done with
             // current level. so add null again
             // else point next of current node to the first element in queue
-            src.Trees.TreeNode<Integer> tmp = queue.poll();
+            Trees.TreeNode<Integer> tmp = queue.poll();
             if (tmp != null) {
                 // point next to first element in queue
                 tmp.setRight(queue.peek());

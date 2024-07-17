@@ -7,14 +7,14 @@ import java.util.Queue;
 https://www.geeksforgeeks.org/iterative-diagonal-traversal-binary-tree/
  */
 public class DiagonalTraversal {
-    public void solution(src.Trees.TreeNode<Integer> root) {
-        Queue<src.Trees.TreeNode<Integer>> queue = new LinkedList<>();
+    public void solution(Trees.TreeNode<Integer> root) {
+        Queue<Trees.TreeNode<Integer>> queue = new LinkedList<>();
 
         queue.add(root);
         queue.add(null);
 
         while (!queue.isEmpty()) {
-            src.Trees.TreeNode<Integer> node = queue.poll();
+            Trees.TreeNode<Integer> node = queue.poll();
 
             if (node != null) {
                 while (node != null) {

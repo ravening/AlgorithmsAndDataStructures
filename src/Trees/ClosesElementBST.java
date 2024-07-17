@@ -7,7 +7,7 @@ public class ClosesElementBST {
 
     int minDiff = Integer.MAX_VALUE, minDiffKey = -1;
 
-    public void solution(src.Trees.TreeNode<Integer> root, int k) {
+    public void solution(Trees.TreeNode<Integer> root, int k) {
         if (root == null) {
             return;
         }

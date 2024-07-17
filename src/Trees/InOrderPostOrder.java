@@ -1,6 +1,6 @@
 package Trees;
 
-import src.Trees.TreeNode;
+import Trees.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,11 +23,11 @@ public class InOrderPostOrder {
 
     }
 
-    public src.Trees.TreeNode<Integer> buildUtil(int[] inOrder, int[] postOrder, int start, int end) {
+    public Trees.TreeNode<Integer> buildUtil(int[] inOrder, int[] postOrder, int start, int end) {
         if (start > end)
             return null;
 
-        src.Trees.TreeNode<Integer> node = new TreeNode<Integer>(postOrder[index]);
+        Trees.TreeNode<Integer> node = new TreeNode<Integer>(postOrder[index]);
 
         if (start == end) {
             return node;

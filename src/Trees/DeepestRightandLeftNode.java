@@ -8,15 +8,15 @@ https://www.geeksforgeeks.org/deepest-right-leaf-node-binary-tree-iterative-appr
  */
 public class DeepestRightandLeftNode {
 
-    public src.Trees.TreeNode<Integer> deepestRightNode(src.Trees.TreeNode<Integer> root) {
-        Queue<src.Trees.TreeNode<Integer>> queue = new LinkedList<>();
+    public Trees.TreeNode<Integer> deepestRightNode(Trees.TreeNode<Integer> root) {
+        Queue<Trees.TreeNode<Integer>> queue = new LinkedList<>();
 
         queue.add(root);
 
-        src.Trees.TreeNode<Integer> result = null;
+        Trees.TreeNode<Integer> result = null;
 
         while (!queue.isEmpty()) {
-            src.Trees.TreeNode<Integer> tmp = queue.poll();
+            Trees.TreeNode<Integer> tmp = queue.poll();
 
             if (tmp.getLeft() != null)
                 queue.add(tmp.getLeft());

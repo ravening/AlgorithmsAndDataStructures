@@ -2,7 +2,7 @@
 // Idea is to use a static variable and recursion. while the recursion is rolling
 // back. keep incrementing the counter. when counter == k print the node
 // No nodes are displayed twice
-package src.Trees;
+package Trees;
 
 public class NodesKDistanceFromLeaf {
     public static int count = 0;

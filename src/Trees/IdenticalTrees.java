@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 public class IdenticalTrees {
     public boolean solution(TreeNode<Integer> root1, TreeNode<Integer> root2) {

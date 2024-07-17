@@ -1,4 +1,4 @@
-package src.Trees;
+package Trees;
 
 /*
 https://www.geeksforgeeks.org/largest-bst-binary-tree-set-2/
