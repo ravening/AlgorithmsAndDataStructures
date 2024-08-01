@@ -19,7 +19,7 @@ class ListArbitNode {
     }
 }
 
-public class CopyWithArbitPointer {
+public class CopyWithArbitraryPointer {
     public ListArbitNode solution(ListArbitNode head) {
         if (head == null)
             return null;
@@ -27,7 +27,7 @@ public class CopyWithArbitPointer {
         ListArbitNode copy = head;
         ListArbitNode tmp = head;
         // create a node and attach next to it.
-        while (copy.next != null) {
+        while (copy != null) {
             ListArbitNode temp = copy.next;
             copy.next = new ListArbitNode(copy.data);
             copy.next.next = temp;
@@ -38,7 +38,7 @@ public class CopyWithArbitPointer {
 
         while (copy != null) {
             if (copy.arbitrary != null) {
-                // point the arbitraty of the next node to the arbitrary of the current node
+                // point the arbitrary of the next node to the arbitrary of the current node
                 copy.next.arbitrary = copy.arbitrary.next;
             }
 
@@ -47,13 +47,17 @@ public class CopyWithArbitPointer {
             }
         }
 
-        copy = head.next;
-        ListArbitNode duplicate = copy;
-        while (tmp.next != null) {
+        ListArbitNode duplicate = new ListArbitNode(0);
+        ListArbitNode copyHead = duplicate;
+
+        while (tmp != null) {
+            copy = tmp.next;
             tmp.next = tmp.next.next;
-            copy.next = copy.next.next;
+            tmp = tmp.next;
+            duplicate.next = copy;
+            duplicate = copy;
         }
 
-        return duplicate;
+        return copyHead.next;
     }
 }
