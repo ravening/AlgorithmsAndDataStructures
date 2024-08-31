@@ -7,16 +7,14 @@ import java.util.Set;
 public class LCS {
     static int[][] dp;
     public static int lcs(String str1, String str2) {
-        if (str1.length() == 0 || str2.length() == 0)
+        if (str1.isEmpty() || str2.isEmpty())
             return 0;
-        dp = new int[str1.length() + 1][str2.length() + 1];
+
         int m = str1.length();
         int n = str2.length();
-        for (var i = 0 ; i <= m; i++) {
-            for (var j = 0; j <= n ; j++) {
-                if ( i == 0 || j == 0) {
-                    dp[i][j] = 0;
-                } else
+        dp = new int[m + 1][n + 1];
+        for (var i = 1 ; i <= m; i++) {
+            for (var j = 1; j <= n ; j++) {
                 if (str1.charAt(i-1) == str2.charAt(j-1)) {
                     dp[i][j] = dp[i-1][j-1] + 1;
                 } else {
