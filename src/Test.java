@@ -1,40 +1,57 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Test {
     public static void main(String[] args) {
-        Map<Person, Integer> map = new HashMap<>();
+        List<Schedule> schedules = new ArrayList<>();
+        schedules.add(new Schedule(1, 10, "Alice"));
+        schedules.add(new Schedule(5, 7, "Bob"));
+        schedules.add(new Schedule(6, 12, "Carla"));
+        schedules.add(new Schedule(15, 17, "David"));
 
-        for (var i = 0; i < 10000; i++) {
-            map.put(new Person("john"), 1);
-        }
+        // <1,5,alice> <5,7, Alice,bob> <7,10,alice>
+        // last.end = 6
+        //
+        Collections.sort(schedules,
+                Comparator.comparingInt((Schedule s) -> s.start).thenComparingInt(s -> s.end));
 
-        System.out.println(map.size());
+        schedules.forEach(System.out::println);
     }
 }
 
-class Person {
+class Schedule {
+    int start;
+    int end;
     String name;
 
-
-    public Person(String name) {
+    public Schedule(int start, int end, String name) {
+        this.start = start;
+        this.end = end;
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public int getStart() {
+        return start;
+    }
 
-        Person person = (Person) o;
+    public int getEnd() {
+        return end;
+    }
 
-        return name.equals(person.name);
+    public String getName() {
+        return name;
     }
 
     @Override
-    public int hashCode() {
-        return name.hashCode();
+    public String toString() {
+        return "Schedule{" +
+                "start=" + start +
+                ", end=" + end +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
