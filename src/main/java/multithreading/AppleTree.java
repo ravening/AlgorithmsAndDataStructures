@@ -1,19 +1,17 @@
 package main.java.multithreading;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 
 public class AppleTree {
     private final String treeLabel;
     private final int numberOfApples;
 
     public static AppleTree[] newTreeGarden(int size) {
-        AppleTree[] appleTrees = new AppleTree[size];
-        for (int i = 0; i < appleTrees.length; i++) {
-            appleTrees[i] = new AppleTree("🌳#" + i);
-        }
-        return appleTrees;
+        return IntStream.range(0, size)
+                .mapToObj(i -> new AppleTree("🌳#" + i))
+                .toArray(AppleTree[]::new);
     }
 
     public AppleTree(String treeLabel) {
@@ -37,12 +35,11 @@ public class AppleTree {
     }
 
     private String toLabel(String threadName) {
-        Map<String, String> threadNameToLabel = new HashMap<>();
-        threadNameToLabel.put("ForkJoinPool.commonPool-worker-1", "Alice");
-        threadNameToLabel.put("ForkJoinPool.commonPool-worker-2", "Bob");
-        threadNameToLabel.put("ForkJoinPool.commonPool-worker-3", "Carol");
-        threadNameToLabel.put("ForkJoinPool.commonPool-worker-4", "Dan");
-
-        return threadNameToLabel.getOrDefault(threadName, threadName);
+        return Map.of(
+                "ForkJoinPool.commonPool-worker-1", "Alice",
+                "ForkJoinPool.commonPool-worker-2", "Bob",
+                "ForkJoinPool.commonPool-worker-3", "Carol",
+                "ForkJoinPool.commonPool-worker-4", "Dan"
+        ).getOrDefault(threadName, threadName);
     }
 }
