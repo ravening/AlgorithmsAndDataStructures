@@ -1,57 +1,62 @@
 package com.rakeshv;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.DoubleToIntFunction;
+import java.util.function.IntSupplier;
+import java.util.function.Supplier;
 
 /**
  * Hello world!
  *
  */
-public class Lambdas
-{
-    private void start() {
-        Thread thread = new Thread(runnable);
-        thread.start();
+public class Lambdas {
+    public static void main(String[] args) {
+        Supplier<String> supplier = () -> "Hello world from supplier";
+        System.out.println(supplier.get());
+
+        Consumer<String> consumer = System.out::println;
+        consumer.accept("Hello world from consumer");
+
+        List<String> strings = new ArrayList<>(List.of("one", "two", "three", "four", "five"));
+        strings.removeIf(string -> string.startsWith("t"));
+        strings.forEach(consumer);
+
+        User sarah = new User("sarah", 28);
+        User james = new User("james", 35);
+        User mary = new User("mary", 33);
+        User john2 = new User("john2", 24);
+        User john1 = new User("john1", 26);
+
+        List<User> users = new ArrayList<>(List.of(sarah, james, mary, john1, john2));
+        users.stream().map(User::getName).forEach(consumer);
+
+        IntSupplier intSupplier = () -> 10;
+        int value = intSupplier.getAsInt();
+        System.out.println(value);
+
+        DoubleToIntFunction doubleToIntFunction = number -> (int) Math.floor(number);
+        value = doubleToIntFunction.applyAsInt(19.99);
+        System.out.println(value);
+
+        int pi = doubleToIntFunction.applyAsInt(Math.PI);
+        System.out.println(pi);
+
+        // Compare using name
+        Comparator<User> comparator = Comparator.comparing(User::getName);
+        // compare using age
+        Comparator<User> ageComparator = Comparator.comparing(User::getAge);
+        // reverse
+        Comparator<User> reverseComparator = comparator.reversed();
+        Consumer<User> userConsumer = System.out::println;
+        comparator.thenComparing(ageComparator);
+        users.sort(comparator);
+        // users.forEach(userConsumer);
+
+        System.out.println("========");
+        users.sort(reverseComparator);
+        users.forEach(userConsumer);
     }
-    public static void main( String[] args )
-    {
-        Long value = null;
-
-        List<Integer> integers = List.of(1, 3, 5, 7, 9, 100, 2, 4);
-
-        Long finalValue = Optional.ofNullable(value)
-                .map(x -> 10L)
-                .orElseGet(() -> 5L);
-
-//        System.out.println(finalValue);
-        Lambdas lambdas = new Lambdas();
-        String result = Optional.ofNullable(value)
-                .map(x -> lambdas.doThisIfNotNull())
-                .orElseGet(lambdas::doThisIfNull);
-        System.out.println(result);
-        System.out.println("current time is " + LocalDateTime.now());
-        integers.parallelStream()
-                .filter(Lambdas::isEven)
-                .findAny()
-                .ifPresent(System.out::println);
-        System.out.println("new time is " + LocalDateTime.now());
-    }
-
-    public static boolean isEven(int x) {
-        try {
-            Thread.sleep(x * 100);
-        } catch (Exception e) {}
-
-        return x % 2 == 0;
-    }
-    public String doThisIfNotNull() {
-        return ("i accept only non null values");
-    }
-
-    public String doThisIfNull() {
-        return ("i accept ONLY null values");
-    }
-
-    Runnable runnable = () -> System.out.println( "Hello World!" );
 }

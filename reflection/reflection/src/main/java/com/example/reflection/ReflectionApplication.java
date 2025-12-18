@@ -7,7 +7,6 @@ import com.example.reflection.models.PrimaryKeyField;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.persistence.EntityManager;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -32,7 +31,7 @@ public class ReflectionApplication {
 
 		// this gives only the public fields
 		Field field = personClass.getField("nickname");
-//		System.out.println(field.toString());
+		// System.out.println(field.toString());
 
 		// this gets all fields of a class
 		Field[] declaredFields = personClass.getDeclaredFields();
@@ -54,7 +53,7 @@ public class ReflectionApplication {
 				.forEach(System.out::println);
 
 		System.out.println("===getting constructors===");
-		Constructor[] declaredConstructors = personClass.getDeclaredConstructors();
+		Constructor<?>[] declaredConstructors = personClass.getDeclaredConstructors();
 		Arrays.stream(declaredConstructors).forEach(System.out::println);
 
 		// modifiers. first bit - public, second - private, 3 - protected, 4 - static
@@ -66,7 +65,6 @@ public class ReflectionApplication {
 		boolean isPublicField = Modifier.isPublic(field.getModifiers());
 		System.out.println("isPublicField ? " + isPublicField);
 
-
 		field = personClass.getDeclaredField("age");
 		System.out.println("Modifier is " + field.getModifiers());
 		System.out.println(Modifier.isPrivate(field.getModifiers()));
@@ -75,7 +73,6 @@ public class ReflectionApplication {
 		System.out.println("firstName modifier is " + field.getModifiers());
 		System.out.println("is protected ? " + Modifier.isProtected(field.getModifiers()));
 
-
 		System.out.println("==============");
 
 		MetaModel<Person> metaModel = MetaModel.of(Person.class);
@@ -83,12 +80,12 @@ public class ReflectionApplication {
 
 		List<ColumnField> columnFields = metaModel.getColumnField();
 
-		System.out.println("Primary key name = " + primaryKeyField.getName() + " and type is " + primaryKeyField.getType().getSimpleName());
+		System.out.println("Primary key name = " + primaryKeyField.getName() + " and type is "
+				+ primaryKeyField.getType().getSimpleName());
 		System.out.println("Columns are");
 		columnFields.forEach(c -> {
 			System.out.println("Column name is " + c.getName() + " and type is " + c.getType().getSimpleName());
 		});
-
 
 	}
 
