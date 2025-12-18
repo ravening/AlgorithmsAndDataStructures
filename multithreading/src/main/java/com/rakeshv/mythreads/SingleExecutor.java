@@ -1,8 +1,5 @@
 package com.rakeshv.mythreads;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -10,6 +7,7 @@ import java.util.concurrent.Future;
 
 public class SingleExecutor {
     static ExecutorService executorService = Executors.newSingleThreadExecutor();
+
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         Future<Double> doubleFuture = getRandom();
         while (!doubleFuture.isDone()) {
@@ -20,7 +18,8 @@ public class SingleExecutor {
 
             try {
                 Thread.sleep(100);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
         }
 
         System.out.println(doubleFuture.get());

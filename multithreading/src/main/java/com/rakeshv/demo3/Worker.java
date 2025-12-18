@@ -1,6 +1,5 @@
 package com.rakeshv.demo3;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -29,7 +28,8 @@ class Processor implements Runnable {
 
         try {
             Thread.sleep(3000);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
         System.out.println("Ending count is " + count);
     }
 }

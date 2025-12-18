@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 
 public class ConditionsDemo {
     InnerStack stack;
+
     public static void main(String[] args) {
         InnerStack stack = new InnerStack();
         Producer producer = new Producer(stack);
@@ -26,6 +27,7 @@ public class ConditionsDemo {
         private Condition stackFullCondition;
         private Condition stackEmptyCondition;
         private boolean hasMoreItems;
+
         InnerStack() {
             stack = new Stack<Object>();
             lock = new ReentrantLock();
@@ -45,7 +47,7 @@ public class ConditionsDemo {
                 Thread.sleep(1000);
                 stackEmptyCondition.signal();
             } catch (Exception e) {
-                //TODO: handle exception
+                e.printStackTrace();
             } finally {
                 lock.unlock();
             }
@@ -61,7 +63,7 @@ public class ConditionsDemo {
                 Thread.sleep(1000);
                 stackFullCondition.signal();
             } catch (Exception e) {
-                //TODO: handle exception
+                e.printStackTrace();
             } finally {
                 lock.unlock();
             }
@@ -71,7 +73,7 @@ public class ConditionsDemo {
     static class Producer {
         private InnerStack stack;
         ExecutorService executor;
-        
+
         Producer(InnerStack stack) {
             this.stack = stack;
             executor = Executors.newSingleThreadExecutor();
@@ -97,7 +99,7 @@ public class ConditionsDemo {
     static class Consumer {
         private InnerStack stack;
         ExecutorService executor;
-        
+
         Consumer(InnerStack stack) {
             this.stack = stack;
             executor = Executors.newSingleThreadExecutor();

@@ -1,6 +1,5 @@
 package com.rakeshv.completablefutures;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -12,7 +11,8 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class HttpClientExample {
-    public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException, URISyntaxException {
+    public static void main(String[] args)
+            throws InterruptedException, ExecutionException, TimeoutException, URISyntaxException {
         ExecutorService service = Executors.newFixedThreadPool(5);
 
         HttpClient client = HttpClient.newBuilder()
@@ -24,8 +24,7 @@ public class HttpClientExample {
                 new URI("https://www.google.com"),
                 new URI("https://www.facebook.com"),
                 new URI("https://www.netflix.com"),
-                new URI("https://www.twitter.com")
-        );
+                new URI("https://www.twitter.com"));
 
         List<CompletableFuture<String>> result = links.stream()
                 .map(url -> {

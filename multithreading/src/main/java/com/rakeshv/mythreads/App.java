@@ -7,17 +7,16 @@ import java.util.stream.IntStream;
 
 public class App {
     public static void main(String[] args) {
-        Count count = new Count();
 
         for (var i = 0; i < 10; i++) {
-                Thread thread = new Thread(() -> {
-                    try {
-                        Count.increment();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                });
-                thread.start();
+            Thread thread = new Thread(() -> {
+                try {
+                    Count.increment();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+            thread.start();
         }
     }
 
@@ -48,9 +47,9 @@ class Count {
         if (lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
             try {
                 int current = counter;
-                System.out.println("Before: " + current + " thread id " + Thread.currentThread().getId());
+                System.out.println("Before: " + current + " thread id " + Thread.currentThread().threadId());
                 counter = current + 1;
-                System.out.println("After: " + counter + " thread id " + Thread.currentThread().getId());
+                System.out.println("After: " + counter + " thread id " + Thread.currentThread().threadId());
             } finally {
                 lock.unlock();
             }

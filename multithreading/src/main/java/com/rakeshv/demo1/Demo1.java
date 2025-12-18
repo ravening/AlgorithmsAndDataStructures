@@ -25,10 +25,8 @@ public class Demo1 {
             try {
                 System.out.println(result.get());
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (ExecutionException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -40,15 +38,12 @@ public class Demo1 {
         try {
             System.out.println(completableFuture.get());
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (ExecutionException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
-    
 }
 
 class Runner extends Thread {

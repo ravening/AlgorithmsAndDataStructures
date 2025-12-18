@@ -63,7 +63,7 @@ public class AsyncExample {
                 emailFuture,
                 (users, emails) -> {
                     System.out.println("User size is " + users.size() + " and email size is " + emails.size());
-        });
+                });
 
         start.completeAsync(() -> null, starter);
         CompletableFuture<List<User>> users1 = completableFuture.thenComposeAsync(fetchUsers);
@@ -81,13 +81,14 @@ public class AsyncExample {
             executorService1.shutdown();
             starter.shutdown();
         } catch (Exception e) {
-            //TODO: handle exception
+            e.printStackTrace();
         }
     }
 
     public static void sleep(long millis) {
         try {
             Thread.sleep(millis);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
     }
 }

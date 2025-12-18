@@ -11,8 +11,8 @@ public class MetaModel<T> {
 
     private Class<T> tClass;
 
-    public static <T> MetaModel of(Class<T> tClass) {
-        return new MetaModel(tClass);
+    public static <T> MetaModel<T> of(Class<T> tClass) {
+        return new MetaModel<>(tClass);
     }
 
     public MetaModel(Class<T> tClass) {

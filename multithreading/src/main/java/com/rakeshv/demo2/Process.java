@@ -8,21 +8,24 @@ public class Process {
         processor.start();
 
         System.out.println("Press enter to stop");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
+        try (Scanner scanner = new Scanner(System.in)) {
+            scanner.nextLine();
+        }
         processor.shutdown();
     }
 }
 
 class Processor extends Thread {
     private volatile boolean running = true;
+
     @Override
     public void run() {
         while (running) {
             System.out.println("From thread " + Thread.currentThread().getName());
             try {
                 Thread.sleep(1000);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
         }
     }
 

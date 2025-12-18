@@ -11,12 +11,11 @@ public class CompletableFutureDemo {
 
         Runnable runnable = () -> {
             System.out.println("Executing from thread " +
-             Thread.currentThread().getName());
+                    Thread.currentThread().getName());
         };
 
-        CompletableFuture completableFuture =
-            CompletableFuture.runAsync(runnable, executorService);
-        
+        CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(runnable, executorService);
+
         System.out.println("From main");
         completableFuture.join();
 
@@ -29,7 +28,8 @@ public class CompletableFutureDemo {
         Supplier<String> delayedSupplier = () -> {
             try {
                 Thread.sleep(3000);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
 
             return "sleep complete";
         };
@@ -37,7 +37,8 @@ public class CompletableFutureDemo {
         CompletableFuture<String> longFuture = CompletableFuture.supplyAsync(delayedSupplier, executorService);
         try {
             Thread.sleep(1000);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
 
         System.err.print("He is taking long time to complete");
         longFuture.complete("He's dead jim");
