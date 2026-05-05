@@ -1,0 +1,42 @@
+# OS generated files
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+.metadata/
+.codebuddy/
+
+# Maven
+target/
+out/
+classes/
+bin/
+*.class
+.mvn/
+
+# Other
+*.log
+
+# Eclipse specific
+.project
+.classpath
+.settings/
+
+# IntelliJ
+*.iml
+
+# NetBeans
+nb-configuration.xml
+
+# VS Code
+.vscode/
+
+# Gradle (if ever used)
+.gradle/
+build/
+
+# Miscellaneous
+*.jar
+*.war
+*.ear

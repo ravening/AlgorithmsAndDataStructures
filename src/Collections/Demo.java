@@ -1,45 +1,31 @@
 package Collections;
 
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.SequencedCollection;
 
 public class Demo {
     public static void main(String[] args) {
-        SequencedCollection<String> list = new LinkedHashSet<>();
-
-        list.addLast("A");
-        list.addLast("B");
-        list.addLast("C");
-        list.addLast("D");
-        list.addLast("E");
-
-        SequencedCollection<String> reverse = list.reversed();
-        reverse.remove("B");
-        System.out.println(reverse);
-        System.out.println(list);
-        list.removeLast();
-        System.out.println(reverse);
-        System.out.println(list);
-
-        Status status = Status.PENDING;
-        printStatus(status);
+        try {
+            Demo demo = new Demo();
+            demo.hop();
+            System.out.println("No Exception");
+        } catch (InnerDemo e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public static void printStatus(Status status) {
-        switch (status) {
-            case PENDING -> System.out.println("Pending");
-            case APPROVED -> System.out.println("Approved");
-            case REJECTED -> System.out.println("Rejected");
-        }
+    public void hop() throws InnerDemo {
+        throw new InnerDemo("Exception from hop");
     }
 
 }
 
-enum Status {
-    PENDING,
-    APPROVED,
-    REJECTED,
-    CANCELLED
-    ;
-
+class InnerDemo extends Exception {
+    public InnerDemo(String message) {
+        super(message);
+    }
 }

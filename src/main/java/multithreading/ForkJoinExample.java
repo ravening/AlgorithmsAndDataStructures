@@ -6,7 +6,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.stream.IntStream;
 
 public class ForkJoinExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         AppleTree[] appleTrees = AppleTree.newTreeGarden(6);
 
         Callable<Void> applePicker1 = createApplePicker(appleTrees, 0, 2, "Alex");
@@ -20,7 +20,7 @@ public class ForkJoinExample {
     }
 
     public static Callable<Void> createApplePicker(AppleTree[] appleTrees, int fromIndexInclusive, int toIndexExclusive,
-                                                   String workerName) {
+            String workerName) {
         return () -> {
             IntStream.range(fromIndexInclusive, toIndexExclusive)
                     .forEach(i -> appleTrees[i].pickApples(workerName));

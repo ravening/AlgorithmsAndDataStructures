@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class LeetCode983 {
     public int mincostTickets(int[] days, int[] costs) {
-        Set<Integer> set = new HashSet();
+        Set<Integer> set = new HashSet<>();
         for (var day : days) {
             set.add(day);
         }

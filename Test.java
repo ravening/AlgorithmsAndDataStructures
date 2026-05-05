@@ -1,6 +1,7 @@
 public class Test {
     public static void main(String[] args) {
-        List<>
+        Interval interval = new Interval(1, 2, "test");
+        System.out.println(interval.name);
     }
 }
 
