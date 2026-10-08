@@ -10,6 +10,7 @@ public class TreeToString {
     static String tree = "";
 
     public void treeToString(Node node) {
+        tree = "";
         if (node == null) {
             return;
         }
@@ -42,7 +43,7 @@ public class TreeToString {
             if (Character.isDigit(s.charAt(i))) {
                 int j = i;
 
-                while (i < s.length() && Character.isDigit(s.charAt(i+1))) {
+                while (i + 1 < s.length() && Character.isDigit(s.charAt(i+1))) {
                     i++;
                 }
                 int val = Integer.parseInt(s.substring(j, i));

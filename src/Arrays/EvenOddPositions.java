@@ -16,7 +16,9 @@ public class EvenOddPositions {
                 j += 2;
 
             if (i < n && j < n) {
-                //swap arr[i] and arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             } else {
                 break;
             }

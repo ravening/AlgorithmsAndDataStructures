@@ -33,7 +33,7 @@ public class PrintLeafNodesLeftToRight {
                     }
                 }
 
-                while (stack1.peek().getRight() == root) {
+                while (!stack1.isEmpty() && stack1.peek().getRight() == root) {
                     root = stack1.pop();
                     if (stack1.isEmpty())
                         break;

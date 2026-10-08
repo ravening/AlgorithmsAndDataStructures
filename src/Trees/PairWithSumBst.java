@@ -59,6 +59,8 @@ public class PairWithSumBst {
                 done2 = false;
             } else if (val1 > val2) {
                 return false;
+            } else if (done1 && done2) {
+                return false;
             }
         }
     }
